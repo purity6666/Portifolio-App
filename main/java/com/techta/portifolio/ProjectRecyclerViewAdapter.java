@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,8 +21,7 @@ public class ProjectRecyclerViewAdapter extends RecyclerView.Adapter<ProjectRecy
 
     private ArrayList<Project> projects = new ArrayList<>();
     private Context context;
-
-    public ProjectRecyclerViewAdapter(Context context) {this.context = context;}
+    private Animation animation;
 
     @NonNull
     @Override
@@ -31,12 +32,14 @@ public class ProjectRecyclerViewAdapter extends RecyclerView.Adapter<ProjectRecy
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProjectRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ProjectRecyclerViewAdapter.ViewHolder holder, int position) {
         holder.projectName.setText(projects.get(position).getProjectName());
         holder.shortDesc.setText(projects.get(position).getShortDesc());
         holder.projectCV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                animation = AnimationUtils.loadAnimation(context, R.anim.zoom_out);
+                holder.projectCV.startAnimation(animation);
             }
         });
 
@@ -49,6 +52,10 @@ public class ProjectRecyclerViewAdapter extends RecyclerView.Adapter<ProjectRecy
     @Override
     public int getItemCount() {
         return projects.size();
+    }
+
+    public ProjectRecyclerViewAdapter(Context context) {
+        this.context = context;
     }
 
     public void setProjects(ArrayList<Project> projects) {
