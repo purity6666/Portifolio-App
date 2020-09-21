@@ -1,6 +1,8 @@
 package com.techta.portifolio;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +34,7 @@ public class ProjectRecyclerViewAdapter extends RecyclerView.Adapter<ProjectRecy
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ProjectRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ProjectRecyclerViewAdapter.ViewHolder holder, final int position) {
         holder.projectName.setText(projects.get(position).getProjectName());
         holder.shortDesc.setText(projects.get(position).getShortDesc());
         holder.projectCV.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +42,14 @@ public class ProjectRecyclerViewAdapter extends RecyclerView.Adapter<ProjectRecy
             public void onClick(View view) {
                 animation = AnimationUtils.loadAnimation(context, R.anim.zoom_out);
                 holder.projectCV.startAnimation(animation);
+                switch (projects.get(position).getProjectName()) {
+                    case "Cube":
+                        openLink("https://github.com/purity6666/CubeApp", view);
+                        break;
+                    case "Genero":
+                        openLink("https://github.com/purity6666/GeneroAutomaticVersion", view);
+                        break;
+                }
             }
         });
 
@@ -48,6 +58,14 @@ public class ProjectRecyclerViewAdapter extends RecyclerView.Adapter<ProjectRecy
                 .load(projects.get(position).getImageURL())
                 .into(holder.projectImage);
     }
+
+    private void openLink(String url, View view) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+
+        view.getContext().startActivity(i);
+    }
+
 
     @Override
     public int getItemCount() {

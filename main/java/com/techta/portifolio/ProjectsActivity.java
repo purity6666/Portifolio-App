@@ -28,8 +28,8 @@ public class ProjectsActivity extends AppCompatActivity {
 
         ArrayList<Project> projects = new ArrayList<>();
 
-        projects.add(new Project("Test Project", "Test Test Test", "https://cdn.discordapp.com/attachments/627815799268311060/755892917058404503/unknown.png"));
         projects.add(new Project("Cube", "Small app, first app that used custom animations", "https://cdn.discordapp.com/attachments/627815799268311060/746685136497541250/20200822_125956.jpg"));
+        projects.add(new Project("Genero","6-digit number generator that sends you notification every time a new number has been generated","https://cdn.discordapp.com/attachments/737325870615625842/757632638860263485/Screenshot_20200921-180028_Genero.jpg"));
 
         ProjectRecyclerViewAdapter adapter = new ProjectRecyclerViewAdapter(this);
         adapter.setProjects(projects);

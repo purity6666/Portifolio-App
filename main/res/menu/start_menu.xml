@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_contact" android:title="Contact Me"/>
-    <item android:id="@+id/menu_repository" android:title="Public Repository"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/menu_contact"
+        android:icon="@drawable/ic_contact_icon"
+        android:title="Contact Me" />
+    <item
+        android:id="@+id/menu_repository"
+        android:icon="@drawable/ic_repository_icon"
+        android:title="Public Repository" />
+
+    <group android:checkableBehavior="single">
+        <item android:title="App Theme">
+            <menu>
+                <item android:id="@+id/menu_themeDark"
+                    android:title="Dark Theme"/>
+                <item android:id="@+id/menu_themeLight"
+                    android:title="Light Theme"/>
+            </menu>
+        </item>
+    </group>
+
 
 </menu>

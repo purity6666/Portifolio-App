@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -47,9 +46,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         authorBtn = findViewById(R.id.authorBtn);
 
         fadingTextView.setTimeout(5, FadingTextView.SECONDS);
-
-        getSupportActionBar().setElevation(0);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#000000\">" + getString(R.string.app_name) + "</font>"));
 
         mProjectsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
