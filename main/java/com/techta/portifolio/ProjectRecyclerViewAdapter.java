@@ -49,6 +49,18 @@ public class ProjectRecyclerViewAdapter extends RecyclerView.Adapter<ProjectRecy
                     case "Genero":
                         openLink("https://github.com/purity6666/GeneroAutomaticVersion", view);
                         break;
+                    case "Fart App":
+                        openLink("https://github.com/purity6666/fartApp", view);
+                        break;
+                    case "Calculator":
+                        openLink("https://github.com/purity6666/CalcApp", view);
+                        break;
+                    case "Binary Converter":
+                        openLink("https://github.com/purity6666/TextToBinaryConverter", view);
+                        break;
+                    case "Dialer":
+                        openLink("https://github.com/purity6666/DialerAPP", view);
+                        break;
                 }
             }
         });

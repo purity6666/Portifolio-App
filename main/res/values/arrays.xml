@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="mainPageFadeTxt">
-        <item>Techta Co.</item>
+        <item>CubeMesh</item>
         <item>Nikola Đuranović</item>
     </string-array>
 </resources>
